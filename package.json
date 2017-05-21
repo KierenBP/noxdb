@@ -1,0 +1,24 @@
+{
+  "name": "noxdb",
+  "version": "0.1.0",
+  "description": "A 'Lite' MySQL Database Module",
+  "main": "app.js",
+  "scripts": {
+    "lint": "./node_modules/eslint/bin/eslint.js ."
+  },
+  "repository": "https://github.com/KierenBP/noxdb",
+  "author": "Kieren BP",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^15.0.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^5.0.3",
+    "eslint-plugin-react": "^7.0.1",
+    "mocha": "^3.4.1"
+  },
+  "dependencies": {
+    "mysql": "^2.13.0"
+  }
+}
