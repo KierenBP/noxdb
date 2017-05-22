@@ -40,7 +40,6 @@ NoxDb.prototype.insert = ({ table, values }) => insert({
 });
 
 
-
 // Database Update Function
 
 NoxDb.prototype.update = ({ table, values, where }) => update({
@@ -49,7 +48,6 @@ NoxDb.prototype.update = ({ table, values, where }) => update({
   where,
   connection: this.connection,
 });
-
 
 
 // // Database Remove Function
