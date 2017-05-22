@@ -1,27 +1,26 @@
 const mysql = require('mysql');
-// eslint-disable-next-line 
-const config = require('./../../config');
-
 
 const fetch = require('./lib/fetch');
 const insert = require('./lib/insert');
 const update = require('./lib/update');
 const remove = require('./lib/remove');
 
-const db = {};
-const connection = mysql.createConnection({
-  host: config.mysqlConnection.host,
-  port: config.mysqlConnection.port,
-  user: config.mysqlConnection.username,
-  password: config.mysqlConnection.password,
-  dateStrings: 'date',
-});
 
-connection.query(`USE ${config.mysqlConnection.database}`);
+function NoxDb(host, port, user, password, database) {
+  this.connection = mysql.createConnection({
+    host,
+    port,
+    user,
+    password,
+    dateStrings: 'date',
+  });
+  this.connection.query(`USE ${database}`);
+}
+
 
 // Database Fetch Function
 
-db.fetch = ({
+NoxDb.prototype.fetch = ({ table, select, count, where, orderby, limit, join }) => fetch({
   table,
   select,
   count,
@@ -29,27 +28,37 @@ db.fetch = ({
   orderby,
   limit,
   join,
-}) => fetch({ table, select, count, where, orderby, limit, join, connection });
+  connection: this.connection,
+});
 
 // Database Insert Function
 
-db.insert = ({
+NoxDb.prototype.insert = ({ table, values }) => insert({
   table,
   values,
-}) => insert({ table, values, connection });
+  connection: this.connection,
+});
+
+
 
 // Database Update Function
 
-db.update = ({
+NoxDb.prototype.update = ({ table, values, where }) => update({
   table,
   values,
   where,
-}) => update({ table, values, where, connection });
+  connection: this.connection,
+});
 
-// Database Remove Function
-db.remove = ({
+
+
+// // Database Remove Function
+
+NoxDb.prototype.remove = ({ table, where }) => remove({
   table,
   where,
-}) => remove({ table, where, connection });
+  connection: this.connection,
+});
 
-module.exports = db;
+
+module.exports = NoxDb;
