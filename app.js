@@ -6,7 +6,7 @@ const update = require('./lib/update');
 const remove = require('./lib/remove');
 
 
-function NoxDb(host, port, user, password, database) {
+function NoxDb({ host, port, user, password, database }) {
   this.connection = mysql.createConnection({
     host,
     port,
