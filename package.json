@@ -4,7 +4,8 @@
   "description": "A 'Lite' MySQL Database Module",
   "main": "app.js",
   "scripts": {
-    "lint": "./node_modules/eslint/bin/eslint.js ."
+    "lint": "./node_modules/eslint/bin/eslint.js .",
+    "test": "node_modules/mocha/bin/mocha"
   },
   "repository": "https://github.com/KierenBP/noxdb",
   "author": "Kieren BP",
@@ -19,6 +20,7 @@
     "mocha": "^3.4.1"
   },
   "dependencies": {
+    "chai-as-promised": "^6.0.0",
     "mysql": "^2.13.0"
   }
 }

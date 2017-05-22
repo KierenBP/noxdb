@@ -20,16 +20,18 @@ function NoxDb({ host, port, user, password, database }) {
 
 // Database Fetch Function
 
-NoxDb.prototype.fetch = ({ table, select, count, where, orderby, limit, join }) => fetch({
-  table,
-  select,
-  count,
-  where,
-  orderby,
-  limit,
-  join,
-  connection: this.connection,
-});
+NoxDb.prototype.fetch = function fetchDb({ table, select, count, where, orderby, limit, join }) {
+  return fetch({
+    table,
+    select,
+    count,
+    where,
+    orderby,
+    limit,
+    join,
+    connection: this.connection,
+  });
+};
 
 // Database Insert Function
 
