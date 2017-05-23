@@ -7,8 +7,6 @@ cache: yarn
 services:
   - mysql
 
-script: ''
-
 before_install:
   - mysql -e 'CREATE DATABASE dbtest; USE dbtest; CREATE TABLE `test` (`id` int(11) unsigned NOT NULL AUTO_INCREMENT, `rowname` varchar(20) DEFAULT NULL, PRIMARY KEY (`id`)); INSERT INTO `test` (`rowname`) VALUES ("testItem");'
 
@@ -20,7 +18,5 @@ jobs:
   include:
     - stage: lint
       script: npm run lint
-    - stage: test
-      script: npm test
     # - stage: deploy
     #   script: ./deploy
