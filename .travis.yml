@@ -8,7 +8,7 @@ services:
   - mysql
 
 before_install:
-  - mysql -e 'CREATE DATABASE dbtest; USE dbtest; CREATE TABLE `test` (`id` int(11) unsigned NOT NULL AUTO_INCREMENT, `rowname` varchar(20) DEFAULT NULL, PRIMARY KEY (`id`));'
+  - mysql -e 'CREATE DATABASE dbtest; USE dbtest; CREATE TABLE `test` (`id` int(11) unsigned NOT NULL AUTO_INCREMENT, `rowname` varchar(20) DEFAULT NULL, PRIMARY KEY (`id`)); INSERT INTO `test` (`rowname`) VALUES ('testItem');'
 
 
 env:
