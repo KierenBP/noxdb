@@ -23,10 +23,10 @@ describe('Database functions', function() {
     // Fetch Database function
   describe('#fetch()', function() {
     it('should eventaully have array length of 1', function(done) {
-        db.fetch({ table: 'test', select: '*' }).should.eventually.have.lengthOf(1).notify(done);
+        db.fetch({ table: 'test', select: ['*'] }).should.eventually.have.lengthOf(1).notify(done);
     });
     it('should eventually have an array with a object in it with the key of `rowname` and `testItem` for the key', function(done) {
-        db.fetch({ table: 'test', select: 'rowname' }).should.eventually.deep.equal([ { rowname: 'testItem' } ]).notify(done);
+        db.fetch({ table: 'test', select: ['rowname'] }).should.eventually.deep.equal([ { rowname: 'testItem' } ]).notify(done);
     });
   });
 });
