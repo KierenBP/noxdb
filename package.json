@@ -1,7 +1,7 @@
 {
   "name": "noxdb",
-  "version": "0.2.0",
-  "description": "A 'Lite' MySQL Database Module",
+  "version": "0.3.0",
+  "description": "A MySQLjs Wrapper for easy use of basic MySQL queries",
   "main": "app.js",
   "scripts": {
     "lint": "./node_modules/eslint/bin/eslint.js .",
