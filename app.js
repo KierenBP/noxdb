@@ -35,30 +35,36 @@ NoxDb.prototype.fetch = function fetchDb({ table, select, count, where, orderby,
 
 // Database Insert Function
 
-NoxDb.prototype.insert = ({ table, values }) => insert({
-  table,
-  values,
-  connection: this.connection,
-});
+NoxDb.prototype.insert = function insertDb({ table, values }) {
+  return insert({
+    table,
+    values,
+    connection: this.connection,
+  });
+};
 
 
 // Database Update Function
 
-NoxDb.prototype.update = ({ table, values, where }) => update({
-  table,
-  values,
-  where,
-  connection: this.connection,
-});
-
+NoxDb.prototype.update = function updateDb({ table, values, where }) {
+  return update({
+    table,
+    values,
+    where,
+    connection: this.connection,
+  });
+};
 
 // // Database Remove Function
 
-NoxDb.prototype.remove = ({ table, where }) => remove({
-  table,
-  where,
-  connection: this.connection,
-});
+
+NoxDb.prototype.remove = function removeDb({ table, where }) {
+  return remove({
+    table,
+    where,
+    connection: this.connection,
+  });
+};
 
 
 module.exports = NoxDb;
