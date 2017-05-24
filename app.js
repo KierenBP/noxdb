@@ -55,7 +55,7 @@ NoxDb.prototype.update = function updateDb({ table, values, where }) {
   });
 };
 
-// // Database Remove Function
+// Database Remove Function
 
 
 NoxDb.prototype.remove = function removeDb({ table, where }) {
@@ -65,6 +65,10 @@ NoxDb.prototype.remove = function removeDb({ table, where }) {
     connection: this.connection,
   });
 };
+
+// MySQLjs Connection
+
+NoxDb.prototype.connection = this.connection;
 
 
 module.exports = NoxDb;
